@@ -5,12 +5,17 @@ const mongoUrl = process.env.MONGODB
 
 
 const initializeDatabase = async () => {
+  try {
+    const connection = await mongoose.connect(mongoUrl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    if (connection) {
+      console.log("connected succesfully");
+    }
+  } catch (error) {
+    console.log("connection failed", error);
+  }
+};
 
-    await mongoose.connect(mongoUrl)
-        .then(() => console.log('Connected to database'))
-        .catch(error=>console.log("Can't connect to database."))
-
-
-}
-
-module.exports = { initializeDatabase }
+module.exports = { initializeDatabase };
