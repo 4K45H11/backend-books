@@ -20,23 +20,7 @@ initializeDatabase()
 app.use(cors())
 app.use(express.json())
 
-//adding the root route for our server
-app.get('/',(req,res)=>{
-    res.send(
-        `<h3>Routes to use the book API</h3>
-        <ul>
-            <li>route:'/books' method="POST"</li>
-            <li>route:'/books' method="GET"</li>
-            <li>route:'/books/:title' method="GET"</li>
-            <li>route:'/books/author/:authorName' method="GET"</li>
-            <li>route:'/books/genre/:genreName' method="GET"</li>
-            <li>route:'/books/publishYear/:year' method="GET"</li>
-            <li>route:'/books/:bookId' method="POST"</li>
-            <li>route:'/books/title/:bookTitle' method="POST"</li>
-            <li>route:'/books/:bookId' method="DELETE"</li>
-        </ul>`
-    )
-})
+
 
 //database operations
 
